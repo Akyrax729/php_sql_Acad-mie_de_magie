@@ -1,0 +1,43 @@
+@use "../../abstract/mixins";
+@use "../../abstract/variable" as var;
+
+#log {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+
+    h1 {
+        margin-bottom: 2rem;
+    }
+
+    .error {
+        color: red;
+        margin: 1rem 0;
+    }
+
+    form {
+        @include mixins.flex($items:flex-start);
+        width: 360px;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 2rem;
+        border-radius: 20px;
+
+        
+        div {
+            @include mixins.flex(row, space-between);
+            margin: 0.2rem 0;
+            width: 100%;
+        }
+
+        label {
+            color: white;
+        }
+
+        button {
+            margin-top: 1rem;
+            align-self: center;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+@use "../../abstract/mixins";
+@use "../../abstract/variable" as var;
+
+header {
+    nav {
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+
+            li {
+                
+
+                a {
+                    display: block;
+                    background-color: rgba(0, 0, 0, 0.6);
+                    padding: 1rem;
+                    margin: 0 0.7rem;
+                    border-radius: 20px;
+                    font-size: 26px;
+                    transition: all 0.3s;
+
+                    &:hover {
+                        color: white;
+                        transform: scale(120%);
+                    }
+                }
+            }
+        }
+    }
+}

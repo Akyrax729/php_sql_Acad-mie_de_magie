@@ -1,0 +1,9 @@
+@use "variable" as var;
+
+@mixin flex ($direction:column, $justify:center, $items:center, $wrap:nowrap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $items;
+    flex-wrap: $wrap;
+}

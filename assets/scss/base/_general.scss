@@ -1,0 +1,13 @@
+@use "../abstract/variable" as var;
+
+body {
+    background-color: var.$primarycolor;
+
+    a {
+        color: wheat;
+    }
+
+    h1 {
+        font-size: 42px;
+    }    
+}
