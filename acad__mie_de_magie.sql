@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 12 déc. 2024 à 15:44
+-- Généré le : ven. 13 déc. 2024 à 15:42
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -36,14 +36,14 @@ CREATE TABLE IF NOT EXISTS `bestiaire` (
   `id_type_fk` int NOT NULL,
   `user_id` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `bestiaire`
 --
 
 INSERT INTO `bestiaire` (`id`, `name`, `description`, `img`, `id_type_fk`, `user_id`) VALUES
-(8, 'Test', 'Test', 'NULL', 1, 1),
+(11, 'liche', 'un mort-vivant dangereux capable de réanimer d&#039;autres mort-vivants.', '1734080152285.jpg', 3, 1),
 (7, 'elémentaire d&#039;eau', 'Une forme humanoïde faite uniquement d&#039;eau avec une conscience propre.', '1733996557368.jpg', 1, 2);
 
 -- --------------------------------------------------------
@@ -54,16 +54,16 @@ INSERT INTO `bestiaire` (`id`, `name`, `description`, `img`, `id_type_fk`, `user
 
 DROP TABLE IF EXISTS `element`;
 CREATE TABLE IF NOT EXISTS `element` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id_element` int NOT NULL AUTO_INCREMENT,
   `type` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id_element`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `element`
 --
 
-INSERT INTO `element` (`id`, `type`) VALUES
+INSERT INTO `element` (`id_element`, `type`) VALUES
 (1, 'Air'),
 (2, 'Feu'),
 (3, 'Eau'),
@@ -79,8 +79,18 @@ DROP TABLE IF EXISTS `sort`;
 CREATE TABLE IF NOT EXISTS `sort` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `id_type_fk` int NOT NULL,
+  `user_id` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `sort`
+--
+
+INSERT INTO `sort` (`id`, `name`, `img`, `id_type_fk`, `user_id`) VALUES
+(7, 'blizzard', '1734103865563.webp', 3, 2);
 
 -- --------------------------------------------------------
 
@@ -145,7 +155,11 @@ CREATE TABLE IF NOT EXISTS `user_element` (
 --
 
 INSERT INTO `user_element` (`user_id`, `element_id`) VALUES
-(2, 3);
+(2, 3),
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

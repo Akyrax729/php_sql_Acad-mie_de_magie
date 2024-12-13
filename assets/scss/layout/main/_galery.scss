@@ -1,7 +1,7 @@
 @use "../../abstract/mixins";
 @use "../../abstract/variable" as var;
 
-#bestiaire {
+#galery {
     margin: 1rem 0;
     display: flex;
     flex-direction: column;
@@ -44,6 +44,7 @@
         margin: 1rem;
         box-shadow: 1px 1px 3px;
         transition: all 0.3s ease;
+        position: relative;
 
         &:hover {
             transform: scale(101%);
@@ -64,6 +65,7 @@
             em {
                 text-transform: capitalize;
             }
+
         }
         h2 {
             padding: 1rem 0.5rem;
@@ -74,6 +76,8 @@
         .cardModif {
             display: flex;
             flex-direction: row;
+            position: absolute;
+            bottom: 0.2rem;
 
             a {
                 font-size: 20px;

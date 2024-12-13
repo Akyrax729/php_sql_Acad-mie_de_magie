@@ -19,11 +19,13 @@
 <body>
     <?php 
         include "../app/includes/nav.php";
-
     ?>
 
-    <section id="bestiaire">
-        <a href="/Académie_de_magie/app/actions/add_monster.php">Ajouter un monstre</a>
+    <section id="galery">
+        <div>
+            <a href="/Académie_de_magie/app/actions/add_monster.php">Ajouter un monstre</a>
+        </div>
+        
 
         <div>
             <?php while ($data = $request->fetch()) :?>
@@ -42,8 +44,8 @@
                     <div class="cardModif">
                         <?php if(isset($_SESSION['userid'])):?>
                             <?php if($_SESSION["userid"] === $data["0"] || $_SESSION["userid"] == "1"): ?>
-                                <a href="">Modifier</a>
-                                <a href="">Supprimer</a>
+                                <a class="mod" href="/Académie_de_magie/app/actions/mod_monster.php<?= "?id=". $data['id'] ?>">Modifier</a>
+                                <a class="del" href="/Académie_de_magie/app/actions/del_monster.php<?= "?id=". $data['id'] ?>">Supprimer</a>
                             <?php else: ?>
                                 <div class="space"></div>
                             <?php endif ?>
